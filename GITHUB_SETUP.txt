@@ -1,0 +1,57 @@
+========================================
+HOW TO PUT THIS PROJECT ON GITHUB
+(Do this BEFORE you start changing code a lot)
+========================================
+
+1. Create a new PUBLIC repository on GitHub
+   - Go to https://github.com/new
+   - Repository name: SmartPantryManager (or anything you like)
+   - Public
+   - Do NOT tick "Add a README" (we already have one)
+   - Click Create repository
+
+2. Open a terminal / PowerShell / Command Prompt in the project folder
+   (the folder that contains app/, build.gradle, README.md)
+
+3. Run these commands one by one:
+
+   git init
+   git add .
+   git commit -m "Initial project structure and DatabaseHelper"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_USERNAME/SmartPantryManager.git
+   git push -u origin main
+
+   (Replace YOUR_USERNAME with your real GitHub username)
+
+4. Make more commits as you work (minimum 10 total). Examples:
+
+   git add .
+   git commit -m "Add PantryAdapter and RecyclerView list"
+   git push
+
+   git add .
+   git commit -m "Implement AddEditIngredientActivity with validation"
+   git push
+
+   git add .
+   git commit -m "Add strict recipe matching logic"
+   git push
+
+   git add .
+   git commit -m "Add RecipeDetail and Settings screens"
+   git push
+
+   git add .
+   git commit -m "Polish UI and bottom navigation"
+   git push
+
+5. Put the GitHub link in your written report:
+   https://github.com/YOUR_USERNAME/SmartPantryManager
+
+========================================
+IMPORTANT
+- Public repo is easiest. If private, add the lecturer as collaborator.
+- Never put all commits in one day right before the deadline.
+- Clear commit messages = good marks for the GitHub section.
+========================================

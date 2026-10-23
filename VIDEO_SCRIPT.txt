@@ -1,0 +1,49 @@
+========================================
+VIDEO SCRIPT (5–7 minutes) – say this
+========================================
+
+[0:00 – 1:00] GITHUB WALKTHROUGH
+Open GitHub in the browser, show the repository.
+"This is my GitHub repository for Smart Pantry Manager. You can see I made regular commits as I built the app: first the project structure and database helper, then the pantry list with RecyclerView, then add/edit screens, then the strict-matching logic, and finally the settings screen and polish. Each commit has a clear message so you can see the incremental progress."
+
+Scroll through the commit list slowly.
+
+[1:00 – 3:30] LIVE APP DEMO
+Open the emulator / device and run the app.
+
+1. Pantry is empty → show the empty message.
+2. Tap + and ADD three ingredients, e.g.:
+   - egg, quantity 4, unit pcs
+   - tomato, quantity 2, unit pcs
+   - butter, quantity 30, unit g
+   (Show validation: leave name blank → error appears)
+3. Go back – list now shows the items. Tap one to EDIT, change quantity, Save.
+4. Switch to SUGGESTED tab. Show that recipes that need only those ingredients appear (Tomato Scramble, Simple Omelette, etc.).
+5. DELETE one ingredient (e.g. tomato). Go back to Suggested – prove that recipes that needed tomato disappear. This proves the STRICT matching rule.
+6. Close the app completely and reopen – data is still there (persistence).
+7. Open Settings, toggle the switches, go back.
+
+[3:30 – 6:00] CONCEPT EXPLANATION (with code open)
+Open Android Studio, show the code.
+
+1. STRICT MATCHING (point to DatabaseHelper.getSuggestedRecipes and canMake):
+"This is the core business logic. I load the entire pantry into a map of normalised name → total quantity. For each recipe I parse its ingredient string. If any required ingredient is missing or the quantity is too low, the recipe is rejected. Only recipes where every single ingredient is present in enough quantity are returned. Names are lower-cased and trailing ‘s’ is removed so tomato matches tomatoes."
+
+2. RECYCLERVIEW + ADAPTER (point to PantryAdapter):
+"The pantry list uses a RecyclerView with a custom Adapter. onCreateViewHolder inflates the card layout, onBindViewHolder fills the name, quantity and optional expiry. When the user taps a card I fire a callback that opens the edit screen with the item id via Intent."
+
+3. INTENTS / NAVIGATION (point to MainActivity):
+"Bottom navigation switches between the pantry list and the suggested list inside the same activity. When the user wants to add or edit I start AddEditIngredientActivity with an Intent, optionally putting the id extra. After they save, onResume refreshes the list so the change is visible immediately."
+
+[6:00 – 6:45] DATABASE JUSTIFICATION
+"I chose SQLite with SQLiteOpenHelper because the app only needs local, offline storage for one user. It matches what we covered in the module, needs no internet or API keys, and full CRUD plus seeding on first run is straightforward. Data survives app restarts as required."
+
+[6:45 – 7:00] Wrap up
+"That covers the GitHub history, a full demo of CRUD and strict matching, the key code concepts, and why I used SQLite. Thank you."
+
+========================================
+TIPS
+- Speak clearly, point at the code with the mouse.
+- Keep total under 7 minutes.
+- Record screen at 1080p, export MP4 H.264, keep under ~30–40 MB so the whole ZIP stays under 50 MB.
+========================================
